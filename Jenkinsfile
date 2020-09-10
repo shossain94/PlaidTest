@@ -1,6 +1,5 @@
 pipeline {
     agent any
-   tools {nodejs 'node'}
     stages {
         stage('Code and Dependencies'){
             parallel{
@@ -9,42 +8,14 @@ pipeline {
                     git 'https://github.com/shossain94/PlaidTest.git'
                 }
             }
-            stage('Install Dependencies'){
-                steps{
-                    sh '/usr/bin/npm install'
-                    sh 'npm install wdio-allure-reporter --save-dev'
-                    sh 'npm install -g allure-commandline --save-dev'
-                    sh 'docker pull elgalu/selenium'
-                    sh 'docker pull dosel/zalenium'
-                }
-            }
-            }
-        }
-            stage ('Start Zalenium'){
-                steps{
-                    sh 'docker run --rm -ti --name zalenium -d -p 4444:4444 -e PULL_SELENIUM_IMAGE=true -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start'
-                }
-            }
-            stage ('Run Tests'){
+             stage ('Run Tests'){
                 steps{
                     sh 'mvn clean verify'
                 }
             }
-            stage ('Generate Allure Reports'){
-                steps{
-                    allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'allure-results']]
-                    ])
-                }
-            }
-            stage ('Stop Zalenium'){
-                steps{
-                    sh 'docker stop zalenium'
-                }
-            }
-    }
-}
+            post {
+            always {
+                 archiveArtifacts artifacts: 'target/surefire-reports/html/*', fingerprint: true
+                 testng "target/surefire-reports/xml/*.xml"
+                 publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: './target/surefire-reports/html', reportFiles: 'extent.html', reportName: 'Extent Report', reportTitles: ''])
+                 }
