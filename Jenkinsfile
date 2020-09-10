@@ -18,4 +18,6 @@ pipeline {
                  archiveArtifacts artifacts: 'target/surefire-reports/html/*', fingerprint: true
                  testng "target/surefire-reports/xml/*.xml"
                  publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: './target/surefire-reports/html', reportFiles: 'extent.html', reportName: 'Extent Report', reportTitles: ''])
+                 		}
+                 	}
                  }
