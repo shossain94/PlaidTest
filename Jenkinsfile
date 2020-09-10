@@ -8,14 +8,6 @@ pipeline {
                     git 'https://github.com/shossain94/PlaidTest.git'
                 }
             }
-            stage('Review node and npm installations') {
-  			steps {
-   				 nodejs(nodeJSInstallationName: 'node13') {
-    			  sh 'npm -v'  //substitute with your code
-     			  sh 'node -v'
-   					 }
-  					}
-				   }
             stage('Install Dependencies'){
                 steps{
                     sh 'npm install'
