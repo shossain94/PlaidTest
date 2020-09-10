@@ -11,7 +11,7 @@ pipeline {
             }
             stage('Install Dependencies'){
                 steps{
-                    sh 'npm install'
+                    sh '/usr/bin/npm install'
                     sh 'npm install wdio-allure-reporter --save-dev'
                     sh 'npm install -g allure-commandline --save-dev'
                     sh 'docker pull elgalu/selenium'
