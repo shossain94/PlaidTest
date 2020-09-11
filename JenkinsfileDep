@@ -39,6 +39,8 @@ pipeline {
             }
             stage ('Generate Allure Reports'){
                 steps{
+                script {
+                		try {
                     allure([
                         includeProperties: false,
                         jdk: '',
@@ -46,6 +48,11 @@ pipeline {
                         reportBuildPolicy: 'ALWAYS',
                         results: [[path: 'allure-results']]
                     ])
+                    }
+                    catch (err) {
+                echo err.getMessage()
+                	}
+              	 }
                 }
             }
             stage ('Stop Zalenium'){
