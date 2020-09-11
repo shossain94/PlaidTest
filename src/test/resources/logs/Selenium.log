@@ -1,0 +1,6 @@
+17:22:59,395 DEBUG devpinoyLogger:72 - LOGIN Test Started $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+17:22:59,411 DEBUG cache:45 - Couldn't find template in cache for "Extent.ftl"("en_US", UTF-8, parsed); will try to load it.
+17:22:59,411 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en_US.ftl"): Not found
+17:22:59,412 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
+17:22:59,413 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent.ftl"): Found
+17:22:59,413 DEBUG cache:45 - Loading template for "Extent.ftl"("en_US", UTF-8, parsed) from "jar:file:/C:/Users/sajja/.m2/repository/com/relevantcodes/extentreports/2.41.2/extentreports-2.41.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"
