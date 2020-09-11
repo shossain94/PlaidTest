@@ -12,7 +12,7 @@ agent any
         }
              stage ('Run Tests'){
                 steps{
-                    sh 'mvn clean verify'
+                    powershell 'mvn clean verify'
                 }
             }
     }
