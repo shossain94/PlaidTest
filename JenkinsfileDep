@@ -34,7 +34,7 @@ pipeline {
             }
             stage ('Run Tests'){
                 steps{
-                    powershell 'mvn clean verify'
+                    powershell 'mvn clean verify -Dwebdriver.remote.driver=chrome'
                 }
             }
             stage ('Generate Allure Reports'){
@@ -51,8 +51,8 @@ pipeline {
                     }
                     catch (err) {
                 echo err.getMessage()
-                	}
-              	 }
+                		}
+              	 	}
                 }
             }
             stage ('Stop Zalenium'){
