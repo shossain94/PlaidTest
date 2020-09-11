@@ -34,7 +34,7 @@ pipeline {
             }
             stage ('Run Tests'){
                 steps{
-                    powershell 'mvn clean verify -Dwebdriver.remote.driver=chrome'
+                    powershell 'mvn clean verify'
                 }
             }
             stage ('Generate Allure Reports'){

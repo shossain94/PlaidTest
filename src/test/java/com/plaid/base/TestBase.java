@@ -7,6 +7,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -16,6 +17,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
@@ -28,7 +33,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 
 public class TestBase {
 
-		public static WebDriver driver;
+		public static WebDriver driver1;
 		public static Properties OR = new Properties(); 
 		public static Properties config = new Properties();
 		public static final String projectPath = System.getProperty("user.dir");
@@ -39,7 +44,7 @@ public class TestBase {
 		public static ExcelReader excel= new ExcelReader(projectPath + "\\src\\test\\resources\\excel\\testPlaid.xlsx");
 		public static ExtentTest test; 
 		public static ExtentReports rep = ExtentManager.getInstance();
-		
+		public static RemoteWebDriver driver;
 		
 		@BeforeSuite 
 		public void setUp() throws IOException {
@@ -53,6 +58,13 @@ public class TestBase {
 				config.load(fisConfig);
 			}
 			
+			
+			DesiredCapabilities dc = new DesiredCapabilities();
+			dc.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+			URL url = new URL("http://localhost:4444/wd/hub");
+			driver = new RemoteWebDriver(url,dc);
+			
+			/*
 			if (config.getProperty("BROWSER").equals("firefox")) {
 				  System.setProperty("webdriver.gecko.driver",   
 				  projectPath + "\\src\\test\\resources\\executables\\geckodriver.exe");
@@ -70,7 +82,7 @@ public class TestBase {
 				 projectPath + "\\src\\test\\resources\\executables\\IEDriverServer.exe");
 				 driver = new InternetExplorerDriver();
 				}
-			
+			*/
 			driver.get(config.getProperty("TEST_SITE_URL"));
 			log.debug("Navigated to: " + config.getProperty("TEST_SITE_URL"));
 			driver.manage().window().maximize();
