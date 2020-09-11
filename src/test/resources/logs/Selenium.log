@@ -1,11 +1,11 @@
-00:24:36,899 DEBUG devpinoyLogger:66 - Chrome Launched ....
-00:24:38,903 DEBUG devpinoyLogger:75 - Navigated to: https://plaid.com/
-00:24:41,096 DEBUG devpinoyLogger:72 - LOGIN Test Started $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-00:24:41,139 DEBUG devpinoyLogger:15 - Image Verified
-00:24:41,568 DEBUG devpinoyLogger:92 - TestUtil.screenshotName=Sun_Sep_06_00_24_41_EDT_2020.jpg
-00:24:41,581 DEBUG cache:45 - Couldn't find template in cache for "Extent.ftl"("en_US", UTF-8, parsed); will try to load it.
-00:24:41,582 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en_US.ftl"): Not found
-00:24:41,583 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
-00:24:41,583 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent.ftl"): Found
-00:24:41,584 DEBUG cache:45 - Loading template for "Extent.ftl"("en_US", UTF-8, parsed) from "jar:file:/C:/Users/sajja/.m2/repository/com/relevantcodes/extentreports/2.41.2/extentreports-2.41.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"
-00:24:42,406 DEBUG devpinoyLogger:166 - Test Successfully Completed
+12:31:59,330 DEBUG devpinoyLogger:66 - Chrome Launched ....
+12:32:00,786 DEBUG devpinoyLogger:75 - Navigated to: https://plaid.com/
+12:32:03,011 DEBUG devpinoyLogger:72 - LOGIN Test Started $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+12:32:03,072 DEBUG devpinoyLogger:15 - Image Verified
+12:32:03,470 DEBUG devpinoyLogger:92 - TestUtil.screenshotName=Fri_Sep_11_12_32_03_EDT_2020.jpg
+12:32:03,488 DEBUG cache:45 - Couldn't find template in cache for "Extent.ftl"("en_US", UTF-8, parsed); will try to load it.
+12:32:03,489 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en_US.ftl"): Not found
+12:32:03,490 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent_en.ftl"): Not found
+12:32:03,490 DEBUG cache:45 - TemplateLoader.findTemplateSource("Extent.ftl"): Found
+12:32:03,490 DEBUG cache:45 - Loading template for "Extent.ftl"("en_US", UTF-8, parsed) from "jar:file:/C:/Users/sajja/.m2/repository/com/relevantcodes/extentreports/2.41.2/extentreports-2.41.2.jar!/com/relevantcodes/extentreports/view/Extent.ftl"
+12:32:04,330 DEBUG devpinoyLogger:166 - Test Successfully Completed
