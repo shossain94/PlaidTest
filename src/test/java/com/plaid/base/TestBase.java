@@ -61,7 +61,7 @@ public class TestBase {
 			
 			DesiredCapabilities dc = new DesiredCapabilities();
 			dc.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
-			URL url = new URL("http://localhost:4444/wd/hub");
+			URL url = new URL("http://172.20.48.1:4444/wd/hub");
 			driver = new RemoteWebDriver(url,dc);
 			
 			/*
