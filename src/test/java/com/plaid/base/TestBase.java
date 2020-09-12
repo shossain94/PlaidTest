@@ -54,7 +54,7 @@ public class TestBase {
 			
 			
 			
-			String host = "localhost";
+			String host = "172.20.48.1";
 			DesiredCapabilities dc = DesiredCapabilities.chrome();
 			//DesiredCapabilities dc = new DesiredCapabilities();
 			//dc.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
