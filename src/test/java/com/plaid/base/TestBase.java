@@ -55,11 +55,12 @@ public class TestBase {
 			
 			
 			String host = "172.20.48.1";
-			DesiredCapabilities dc = DesiredCapabilities.chrome();
-			//DesiredCapabilities dc = new DesiredCapabilities();
-			//dc.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
-			String completeUrl ="http://"+host+":4444/wd/hub";
-			this.driver = new RemoteWebDriver(new URL(completeUrl),dc);
+			//DesiredCapabilities dc = DesiredCapabilities.chrome();
+			DesiredCapabilities dc = new DesiredCapabilities();
+			dc.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+			URL url = new URL("http://"+ host +":4444/wd/hub");
+			//String completeUrl ="http://"+host+":4444/wd/hub";
+			this.driver = new RemoteWebDriver(url,dc);
 			
 			
 			if(driver == null)	{
