@@ -64,6 +64,7 @@ public class TestBase {
 			URL url = new URL("http://172.20.48.1:4444/wd/hub");
 			driver = new RemoteWebDriver(url,dc);
 			
+			// -e PULL_SELENIUM_IMAGE=true
 			/*
 			if (config.getProperty("BROWSER").equals("firefox")) {
 				  System.setProperty("webdriver.gecko.driver",   
