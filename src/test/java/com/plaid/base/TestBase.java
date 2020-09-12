@@ -23,7 +23,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
 import com.plaid.utilities.ExcelReader;
@@ -46,9 +48,19 @@ public class TestBase {
 		public static ExtentReports rep = ExtentManager.getInstance();
 		public static RemoteWebDriver driver;
 		
-		@BeforeSuite 
+		@BeforeTest
 		public void setUp() throws IOException {
 			System.setProperty("org.uncommons.reportng.escape-output", "false");
+			
+			
+			
+			String host = "localhost";
+			DesiredCapabilities dc = DesiredCapabilities.chrome();
+			//DesiredCapabilities dc = new DesiredCapabilities();
+			//dc.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
+			String completeUrl ="http://"+host+":4444/wd/hub";
+			this.driver = new RemoteWebDriver(new URL(completeUrl),dc);
+			
 			
 			if(driver == null)	{
 				fisOR = new FileInputStream(projectPath +"\\src\\test\\resources\\properties\\OR.properties");
@@ -58,14 +70,9 @@ public class TestBase {
 				config.load(fisConfig);
 			}
 			
-			
-			DesiredCapabilities dc = new DesiredCapabilities();
-			dc.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
-			URL url = new URL("http://172.20.48.1:4444/wd/hub");
-			driver = new RemoteWebDriver(url,dc);
-			
 			// -e PULL_SELENIUM_IMAGE=true
 			/*
+			 * 
 			if (config.getProperty("BROWSER").equals("firefox")) {
 				  System.setProperty("webdriver.gecko.driver",   
 				  projectPath + "\\src\\test\\resources\\executables\\geckodriver.exe");
@@ -172,7 +179,7 @@ public class TestBase {
 			Thread.sleep(milliSeconds);
 		}
 	
-		@AfterSuite
+		@AfterTest
 		public void tearDown() {
 			if (driver!= null) {
 				driver.quit();
